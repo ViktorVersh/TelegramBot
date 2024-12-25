@@ -1,7 +1,7 @@
 """
 Файл взаимодействия с клиентом
 """
-from aiogram import Router, types, F
+from aiogram import Router, types
 from aiogram.filters import CommandStart
 
 from shop.create_bot import bot

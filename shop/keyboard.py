@@ -4,7 +4,7 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 # from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-from shop.drinks_list import drinks, about
+from shop.drinks_list import drinks
 
 
 def start_keyboard():
