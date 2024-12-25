@@ -1,8 +1,9 @@
 import asyncio
 import logging
 
-from shop import drink_run
+# from shop import drink_run
 from shop.create_bot import bot, dp
+from shop.drink_run import router
 
 """
 Основной файл запуска бота.
@@ -19,7 +20,7 @@ from shop.create_bot import bot, dp
 
 async def main():
 
-    dp.include_router(drink_run.router)  # в диспетчер dp добавляем роутер для выполнения роутером задач которые
+    dp.include_router(router)  # в диспетчер dp добавляем роутер для выполнения роутером задач которые
     # определены в drink_run
     await bot.delete_webhook(
         drop_pending_updates=True)  # аналог записи skip_updates=True из более старых версий aiogram

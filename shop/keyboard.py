@@ -2,7 +2,11 @@
 Здесь создаем клавиатуры
 """
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from shop import drinks
+
+from shop.drinks_list import drinks
+
+
+# from shop import drinks
 
 
 def start_keyboard():

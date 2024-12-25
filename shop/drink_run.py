@@ -4,7 +4,11 @@
 from aiogram import Router, types
 from aiogram.filters import Command, CommandStart
 
-from shop import get_drinks_keyboard, drinks, buy_drinks_keyboard, formatted_drinks, bot
+from shop.create_bot import bot
+from shop.drinks_list import drinks, formatted_drinks
+from shop.keyboard import get_drinks_keyboard, buy_drinks_keyboard
+
+# from shop import get_drinks_keyboard, drinks, buy_drinks_keyboard, formatted_drinks, bot
 
 router = Router()
 # Функция отправки сообщения с ошибкой
