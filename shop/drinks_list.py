@@ -17,5 +17,7 @@ drinks = {
 # Форматируем список напитков для отображения
 formatted_drinks = "\n".join([f"{name}: {price} ₽" for name, price in drinks.items()])
 
+about = "Магазин продажи напитков"
+
 if __name__ == '__main__':
     print(formatted_drinks)

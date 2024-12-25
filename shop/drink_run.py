@@ -1,28 +1,27 @@
 """
 Файл взаимодействия с клиентом
 """
-from aiogram import Router, types
-from aiogram.filters import Command, CommandStart
+from aiogram import Router, types, F
+from aiogram.filters import CommandStart
 
 from shop.create_bot import bot
 from shop.drinks_list import drinks, formatted_drinks
 from shop.keyboard import get_drinks_keyboard, buy_drinks_keyboard
 
-# from shop import get_drinks_keyboard, drinks, buy_drinks_keyboard, formatted_drinks, bot
-
 router = Router()
+
+
+@router.message(CommandStart())
+async def sale_command(message: types.Message):
+    """Отзыв на команду "/start", подключение инлайн кнопок"""
+    await message.answer("Добро пожаловать в магазин напитков! Выберите напиток для заказа:",
+                         reply_markup=get_drinks_keyboard())
+
+
 # Функция отправки сообщения с ошибкой
 async def send_error_message(message: types.Message, text: str):
     await message.answer(text)
 
-@router.message(CommandStart())
-async def start_command(message: types.Message):
-    await message.answer("Добро пожаловать в магазин напитков! Выберите напиток для заказа:",
-                         reply_markup=get_drinks_keyboard())
-
-@router.message(Command("order"))
-async def order_command(message: types.Message):
-    await message.answer("Выберите напиток из списка:", reply_markup=get_drinks_keyboard())
 
 @router.callback_query()
 async def process_drink_order(callback_query: types.CallbackQuery):

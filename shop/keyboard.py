@@ -2,23 +2,18 @@
 Здесь создаем клавиатуры
 """
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+# from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-from shop.drinks_list import drinks
-
-
-# from shop import drinks
+from shop.drinks_list import drinks, about
 
 
 def start_keyboard():
-    # kb = ReplyKeyboardMarkup(keyboard=[
-    #     [KeyboardButton(text="/news")],
-    #     [KeyboardButton(text="/sale")]], resize_keyboard=True)
     kb = InlineKeyboardMarkup(inline_keyboard=
     [
         [InlineKeyboardButton(text="Новости", callback_data="/news")],
         [InlineKeyboardButton(text="Магазин напитков", callback_data="/sale")]
 
-    ], resize_keyboard=True)
+    ], resize_keyboard=True, input_field_placeholder='Воспользуйтесь меню')
     return kb
 
 
@@ -28,6 +23,7 @@ def get_drinks_keyboard():
         button = [InlineKeyboardButton(text=f"{drink_name} - {price} ₽", callback_data=drink_name)]
         keyboard.append(button)
     return InlineKeyboardMarkup(inline_keyboard=keyboard)
+
 
 def buy_drinks_keyboard():
     buy_key = InlineKeyboardMarkup(inline_keyboard=[
